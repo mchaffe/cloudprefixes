@@ -6,7 +6,7 @@ import (
 	"log/slog"
 	"regexp"
 
-	"cloudprefixes/pkg/db"
+	"github.com/mchaffe/cloudprefixes/pkg/db"
 )
 
 type AzureResponse struct {

@@ -1,12 +1,13 @@
 package update
 
 import (
-	"cloudprefixes/pkg/db"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"os"
 	"path/filepath"
+
+	"github.com/mchaffe/cloudprefixes/pkg/db"
 )
 
 func stringPointer(s string) *string {

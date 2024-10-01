@@ -2,15 +2,21 @@ package main
 
 import (
 	"bufio"
-	"cloudprefixes/pkg/db"
-	"cloudprefixes/pkg/update"
 	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
 	"os"
 	"path/filepath"
+
+	"github.com/mchaffe/cloudprefixes/pkg/db"
+	"github.com/mchaffe/cloudprefixes/pkg/update"
 )
+
+type Results struct {
+	IP   string          `json:"ip"`
+	Info []db.PrefixInfo `json:"info"`
+}
 
 func main() {
 
@@ -55,7 +61,7 @@ func main() {
 				log.Fatalf("error scanning database: %v", err)
 			}
 			if found {
-				b, err := json.Marshal(info)
+				b, err := json.Marshal(Results{IP: ip, Info: info})
 				if err != nil {
 					log.Fatalf("error serializing to json: %v", err)
 				}
@@ -65,12 +71,13 @@ func main() {
 	} else {
 		scanner := bufio.NewScanner(os.Stdin)
 		for scanner.Scan() {
-			found, info, err := manager.ContainsIP(scanner.Text())
+			ip := scanner.Text()
+			found, info, err := manager.ContainsIP(ip)
 			if err != nil {
 				log.Fatalf("error scanning database: %v", err)
 			}
 			if found {
-				b, err := json.Marshal(info)
+				b, err := json.Marshal(Results{IP: ip, Info: info})
 				if err != nil {
 					log.Fatalf("error serializing to json: %v", err)
 				}

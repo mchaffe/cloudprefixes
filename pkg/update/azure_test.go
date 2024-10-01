@@ -1,10 +1,11 @@
 package update
 
 import (
-	"cloudprefixes/pkg/db"
 	"fmt"
 	"os"
 	"testing"
+
+	"github.com/mchaffe/cloudprefixes/pkg/db"
 )
 
 func TestMicrosoftURLFinder_FindURL(t *testing.T) {

@@ -1,12 +1,13 @@
 package update
 
 import (
-	"cloudprefixes/pkg/db"
 	"fmt"
 	"io"
 	"log"
 	"log/slog"
 	"net/http"
+
+	"github.com/mchaffe/cloudprefixes/pkg/db"
 )
 
 type UpdateManager struct {

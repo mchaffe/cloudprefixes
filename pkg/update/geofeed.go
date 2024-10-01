@@ -1,12 +1,13 @@
 package update
 
 import (
-	"cloudprefixes/pkg/db"
 	"encoding/csv"
 	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
+
+	"github.com/mchaffe/cloudprefixes/pkg/db"
 )
 
 type Geofeed struct {

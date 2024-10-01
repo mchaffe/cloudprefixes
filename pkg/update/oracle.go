@@ -1,8 +1,9 @@
 package update
 
 import (
-	"cloudprefixes/pkg/db"
 	"encoding/json"
+
+	"github.com/mchaffe/cloudprefixes/pkg/db"
 )
 
 type OracleResponse struct {
