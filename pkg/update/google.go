@@ -1,9 +1,10 @@
 package update
 
 import (
-	"cloudprefixes/pkg/db"
 	"encoding/json"
 	"fmt"
+
+	"github.com/mchaffe/cloudprefixes/pkg/db"
 )
 
 type GoogleResponse struct {

@@ -1,11 +1,12 @@
 package update
 
 import (
-	"cloudprefixes/pkg/db"
 	"database/sql"
 	"fmt"
 	"strings"
 	"testing"
+
+	"github.com/mchaffe/cloudprefixes/pkg/db"
 )
 
 type MockMicrosoftURLFinder struct{}

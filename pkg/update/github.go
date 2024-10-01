@@ -1,10 +1,11 @@
 package update
 
 import (
-	"cloudprefixes/pkg/db"
 	"encoding/json"
 	"net"
 	"reflect"
+
+	"github.com/mchaffe/cloudprefixes/pkg/db"
 
 	"log/slog"
 )
