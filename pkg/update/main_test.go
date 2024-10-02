@@ -20,14 +20,14 @@ func (m *MockMicrosoftURLFinder) GetJsonUrl(url string) (string, error) {
 
 func TestUpdateManager_InsertPrefixes(t *testing.T) {
 	// Initialize an in-memory SQLite database for testing
-	dbConn, err := sql.Open("sqlite3", ":memory:")
+	dbConn, err := sql.Open("sqlite", ":memory:")
 	if err != nil {
 		t.Fatalf("Failed to open in-memory SQLite database: %v", err)
 	}
 	defer dbConn.Close()
 
 	// Create a PrefixManager instance with the test database
-	prefixManager, err := db.NewIPRangeManager(":memory:") // Use in-memory DB for tests
+	prefixManager, err := db.NewPrefixManager(":memory:") // Use in-memory DB for tests
 	if err != nil {
 		t.Fatalf("Failed to initialize PrefixManager: %v", err)
 	}

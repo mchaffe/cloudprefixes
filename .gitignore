@@ -27,3 +27,6 @@ data/
 cloudprefixes.db
 
 .vscode/
+
+dist/
+*.bak

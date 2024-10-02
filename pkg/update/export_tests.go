@@ -56,7 +56,7 @@ func SetupUpdateManager() (*UpdateManager, *TestServer, func()) {
 	ts := NewTestServer()
 
 	// Initialize IPRangeManager with the temporary database
-	dm, err := db.NewIPRangeManager(":memory:")
+	dm, err := db.NewPrefixManager(":memory:")
 	if err != nil {
 		panic(err)
 	}

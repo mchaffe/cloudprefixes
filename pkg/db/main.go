@@ -7,7 +7,7 @@ import (
 	"math/big"
 	"net"
 
-	_ "github.com/mattn/go-sqlite3"
+	_ "modernc.org/sqlite"
 )
 
 type PrefixInfo struct {
@@ -22,8 +22,8 @@ type PrefixManager struct {
 	db *sql.DB
 }
 
-func NewIPRangeManager(dbPath string) (*PrefixManager, error) {
-	db, err := sql.Open("sqlite3", dbPath)
+func NewPrefixManager(dbPath string) (*PrefixManager, error) {
+	db, err := sql.Open("sqlite", dbPath)
 	if err != nil {
 		return nil, fmt.Errorf("error opening database: %v", err)
 	}

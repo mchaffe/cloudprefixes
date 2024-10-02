@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	_ "github.com/mattn/go-sqlite3"
+	_ "modernc.org/sqlite"
 )
 
 func stringPointer(s string) *string {
@@ -14,7 +14,7 @@ func stringPointer(s string) *string {
 
 func TestPrefixManager_AddPrefix(t *testing.T) {
 	// Create a temporary in-memory database for testing
-	manager, err := NewIPRangeManager(":memory:")
+	manager, err := NewPrefixManager(":memory:")
 	if err != nil {
 		t.Fatalf("Failed to create IPRangeManager: %v", err)
 	}
@@ -68,7 +68,7 @@ func TestPrefixManager_AddPrefix(t *testing.T) {
 }
 
 func TestPrefixManager_AddPrefixBatch(t *testing.T) {
-	manager, err := NewIPRangeManager(":memory:")
+	manager, err := NewPrefixManager(":memory:")
 	if err != nil {
 		t.Fatalf("Failed to create IPRangeManager: %v", err)
 	}
@@ -121,7 +121,7 @@ func TestPrefixManager_AddPrefixBatch(t *testing.T) {
 }
 
 func TestPrefixManager_ContainsIP(t *testing.T) {
-	manager, err := NewIPRangeManager(":memory:")
+	manager, err := NewPrefixManager(":memory:")
 	if err != nil {
 		t.Fatalf("Failed to create IPRangeManager: %v", err)
 	}
@@ -233,7 +233,7 @@ func Test_lastIP(t *testing.T) {
 }
 
 func TestPrefixManager_ClearAllData(t *testing.T) {
-	manager, err := NewIPRangeManager(":memory:")
+	manager, err := NewPrefixManager(":memory:")
 	if err != nil {
 		t.Fatalf("Failed to create IPRangeManager: %v", err)
 	}
