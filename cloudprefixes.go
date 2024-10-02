@@ -41,7 +41,7 @@ func main() {
 
 	flag.Parse()
 
-	manager, err := db.NewIPRangeManager(*databasePath)
+	manager, err := db.NewPrefixManager(*databasePath)
 	if err != nil {
 		log.Fatalf("Error creating IP range manager: %v", err)
 	}

@@ -67,7 +67,7 @@ func TestUpdateManager_UpdateAzurePrefixes(t *testing.T) {
 	defer os.Remove((f.Name()))
 
 	// Initialize IPRangeManager with the temporary database file
-	dm, err := db.NewIPRangeManager(f.Name())
+	dm, err := db.NewPrefixManager(f.Name())
 	if err != nil {
 		panic(err)
 	}
